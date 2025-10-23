@@ -1,0 +1,146 @@
+body {
+    margin: 1rem auto;
+    padding: 3rem;
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+}
+header {
+    width: 70%;
+    margin: 1em auto;
+}
+main {
+    max-width: 70%;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: column;
+}
+img {
+    max-width: 100%;
+    max-height: 50rem;
+}
+#image-frame {
+    font-size: x-large;
+    text-align: center;
+    margin: 1rem auto;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#explanation,
+#score {
+    padding: 1rem;
+    text-align: center;
+}
+#options {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+#options.loading {
+    opacity: 0;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+#image-frame:not(:has(img)) {
+    font-size: 24px;
+    animation: bounce 1s infinite;
+}
+button {
+    padding: 0.5rem;
+    font-size: medium;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover:not(.correct):not(.incorrect) {
+    background-color: #e9ecef;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    cursor: not-allowed pointer;
+    opacity: 0.6;
+    margin: 0.5rem;
+    border: 2px solid #ccc;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+
+.next-button {
+    background-color: #4caf50;
+    color: white;
+    font-weight: bold;
+    border: none;
+    margin-top: 1rem;
+}
+
+.next-button:hover {
+    background-color: #45a049;
+}
+
+.game-complete {
+    text-align: center;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.game-complete h2 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.game-complete p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+#playAgain {
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    border: none;
+    padding: 1rem 2rem;
+}
+
+#playAgain:hover {
+    background-color: #1976d2;
+}
+.correct {
+    background-color: #90ee90;
+    border-color: #4caf50;
+    color: #1b5e20;
+}
+.incorrect {
+    background-color: lightpink;
+}
+.hidden {
+    display: none;
+}
