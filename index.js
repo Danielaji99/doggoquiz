@@ -65,8 +65,11 @@ function getMultipleChoices(n, correctAnswer, array) {
 
 // Extract breed name from URL
 function getBreedFromURL(url) {
-  const [breed, size] = url.split("/")[4].split("-");
-  return `${size} ${breed}`;
+
+    const [,path] = url.split("/breeds/");
+    const [breedID] = path.split("/");
+    const [breed, subtype] = breedID.split("-");
+    return [subtype, breed].join(" ");
 }
 
 // Fetch dog image
